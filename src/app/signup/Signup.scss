@@ -33,7 +33,7 @@
 
       label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-weight: bold;
         color: #333;
         text-align: left;
@@ -41,14 +41,16 @@
 
       .input-row {
         display: flex;
-        gap: 10px;
+        gap: 15px;
 
         input {
+          width: 48%;
           flex: 1;
           padding: 10px;
-          border: 1px solid #ccc;
+          border: 1px solid #0e0101;
           border-radius: 4px;
           font-size: 16px;
+          color: #000; // Ensure text color is black
         }
       }
 
@@ -60,15 +62,25 @@
       }
     }
 
+    .email-group,
+    .phone-group {
+      input {
+        width: 100%;// Adjust the width to your preference
+      }
+    }
+
     .form-actions {
       display: flex;
       justify-content: space-between;
       margin-top: 20px;
+      color: #f6f8fa;
 
       button {
-        width: 48%;
+        width: 30%;
         padding: 10px;
         border: none;
+        margin-left: 150px;
+        background-color: #0070f3;
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
