@@ -26,7 +26,7 @@ const SignIn = () => {
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:80/signin', {
+      const response = await fetch('https://chess-club-backend.vercel.app/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
