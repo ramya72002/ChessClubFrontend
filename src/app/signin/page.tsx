@@ -50,7 +50,7 @@ const SignIn = () => {
     <div className="signin-form-container">
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit} className="signin-form">
-        <div className="form-group">
+        <div className="form-group1">
           <label>Email</label>
           <input
             type="email"
