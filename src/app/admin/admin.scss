@@ -1,0 +1,45 @@
+.admin-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .export-button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .export-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .users-table th,
+  .users-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .users-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .users-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .users-table tr:hover {
+    background-color: #ddd;
+  }
+  
