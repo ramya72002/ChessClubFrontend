@@ -102,7 +102,7 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <label>Email</label>
-          <input className="input-row"
+          <input
             type="email"
             name="email"
             placeholder="example@example.com"
@@ -113,7 +113,7 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <label>Phone Number</label>
-          <input className="input-row"
+          <input
             type="tel"
             name="phone"
             placeholder="(000) 000-0000"

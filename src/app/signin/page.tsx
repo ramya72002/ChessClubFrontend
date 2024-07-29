@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './Signin.scss'; // Import the SCSS file
-// import loadingGif from './loading.gif'; // Import your loading GIF
 
 const SignIn = () => {
   const [formValues, setFormValues] = useState({
@@ -69,7 +68,7 @@ const SignIn = () => {
         <form onSubmit={handleSubmit} className="signin-form">
           <h2>Sign In</h2>
           <div className="logo-container">
-          <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
+            <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
           </div>
           <div className="form-group1">
             <label>Email</label>
@@ -99,6 +98,13 @@ const SignIn = () => {
           {error && <p className="error-message">{error}</p>}
           <div className="form-actions">
             <button type="submit" className="signin-button">Sign In</button>
+            <button 
+              type="button" 
+              className="signup-link-button"
+              onClick={() => router.push('/signup')} // Navigates to the signup page
+            >
+              Don’t you have an account yet? Sign Up
+            </button>
           </div>
         </form>
       )}
