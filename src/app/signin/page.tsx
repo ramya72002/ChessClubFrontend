@@ -68,7 +68,10 @@ const SignIn = () => {
       ) : (
         <form onSubmit={handleSubmit} className="signin-form">
           <h2>Sign In</h2>
-          <div className="form-group">
+          <div className="logo-container">
+          <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
+          </div>
+          <div className="form-group1">
             <label>Email</label>
             <input
               type="email"

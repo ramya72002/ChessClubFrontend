@@ -1,3 +1,6 @@
+body {
+  background-color: lavender;
+}
 .signin-form-container {
   max-width: 400px;
   margin: 50px auto 0;
@@ -5,7 +8,25 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #f8f8f2;
+  background-color: #ffffff;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 200px;
+  height: 300px;
+}
+
+.signin-form {
+  border: 1px solid #c6bfbf;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 .signin-form-container h2 {
@@ -27,27 +48,30 @@
 
 .form-group label {
   display: block;
-  
-  color: #2a45dc;
+  color: #030303;
   margin-bottom: 5px;
 }
+
+.form-group label a {
+  color: rgb(74, 42, 237);
+}
+
 .form-group1 label {
   display: block;
-  
   color: #0e0e0e;
   margin-bottom: 5px;
 }
+
 .form-group1 input[type="email"] {
   width: 100%;
-  padding: 8px;
+  padding: 6px;
   margin: 7px;
   color: #000;
   border: 1px solid #0e0101;
   border-radius: 4px;
   box-sizing: border-box;
-  text-align: left; /* This ensures the text inside the input is aligned to the left */
+  text-align: left;
 }
-
 
 .checkbox-container {
   display: flex;
@@ -91,15 +115,17 @@
 .form-actions button:hover {
   background-color: #0056b3;
 }
+
 .loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full screen height */
-  .loading-gif {
-    width: 50px; /* Size the GIF as needed */
-    height: 50px;
-    background: url('/loading.gif') no-repeat center center;
-    background-size: contain;
-  }
+}
+
+.loading-gif {
+  width: 50px;
+  height: 50px;
+  background: url('/loading.gif') no-repeat center center;
+  background-size: contain;
 }
