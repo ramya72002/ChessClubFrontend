@@ -1,16 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation'; // Import the useRouter hook for navigation
-import './TermsAndConditions.scss';
+ import './TermsAndConditions.scss';
 
 const TermsAndConditions = () => {
-  const router = useRouter(); // Initialize the router
-
+ 
   // Handler function for the Go Back button
   const handleGoBack = () => {
-    router.back(); // Navigate to the previous page
-  };
+    window.location.href = '/signin';  };
   return (
     <div className="terms-and-conditions">
               <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
