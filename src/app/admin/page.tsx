@@ -19,7 +19,7 @@ const Admin: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:80/Club_users')
+    fetch('https://chess-club-backend.vercel.app/Club_users')
       .then(response => response.json())
       .then(data => {
         console.log('Fetched data:', data); // Debugging
