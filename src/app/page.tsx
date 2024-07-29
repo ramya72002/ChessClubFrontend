@@ -1,8 +1,8 @@
-import Signup from "./signup/page";
+import SignIn from "./signin/page";
 export default function Home() {
   return (
     <main>
-      <Signup />
+      <SignIn />
       
       
     
