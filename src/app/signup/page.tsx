@@ -1,9 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import './Signup.scss'; // Import the SCSS file
+import './Signup.scss';
 
 const Signup = () => {
-  // State to manage form input values
   const [formValues, setFormValues] = useState({
     parentFirstName: '',
     parentLastName: '',
@@ -12,8 +11,8 @@ const Signup = () => {
     email: '',
     phone: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handler to update form values
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setFormValues({
@@ -22,9 +21,9 @@ const Signup = () => {
     });
   };
 
-  // Handler for form submission
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    setIsSubmitting(true); // Set submitting state to true
 
     try {
       const response = await fetch('https://chess-club-backend.vercel.app/signup', {
@@ -36,8 +35,8 @@ const Signup = () => {
       });
 
       if (!response.ok) {
+        // Redirect to sign-in page if an error occurs
         window.location.href = '/signin';
-        // Handle error if the request failed
         console.error('Error:', response.statusText);
         return;
       }
@@ -46,6 +45,8 @@ const Signup = () => {
       console.log('Form submitted successfully:', data);
     } catch (error) {
       console.error('Error submitting the form:', error);
+    } finally {
+      setIsSubmitting(false); // Reset submitting state
     }
   };
 
@@ -101,7 +102,7 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <label>Email</label>
-          <input
+          <input className="input-row"
             type="email"
             name="email"
             placeholder="example@example.com"
@@ -112,7 +113,7 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <label>Phone Number</label>
-          <input
+          <input className="input-row"
             type="tel"
             name="phone"
             placeholder="(000) 000-0000"
@@ -121,10 +122,18 @@ const Signup = () => {
             value={formValues.phone}
             onChange={handleInputChange}
            />
-          <small>Please enter a valid phone number.</small>
-        </div>
+         </div>
         <div className="form-actions">
-          <button type="submit" className="submit-button">Submit</button>
+          <button type="submit" className="submit-button" disabled={isSubmitting}>
+            {isSubmitting ? <img src="/images/loading.gif" alt="Loading" /> : 'Submit'}
+          </button>
+          <button
+            type="button"
+            className="signin-button"
+            onClick={() => window.location.href = '/signin'}
+          >
+            Already have an account? Sign in
+          </button>
         </div>
       </form>
     </div>

@@ -80,3 +80,15 @@
 .form-actions button:hover {
   background-color: #0056b3;
 }
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  .loading-gif {
+    width: 50px; /* Size the GIF as needed */
+    height: 50px;
+    background: url('/loading.gif') no-repeat center center;
+    background-size: contain;
+  }
+}
