@@ -2,17 +2,19 @@
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #fffefd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-top: 30px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .logo {
-    width: 100px;
+    width: 200px;
+    height: 300px;
     margin-bottom: 20px;
   }
 
@@ -99,13 +101,6 @@
       }
     }
 
-    .email-group,
-    .phone-group {
-      input {
-        width: 100%;// Adjust the width to your preference
-      }
-    }
-
     .form-actions {
       display: flex;
       justify-content: space-between;
@@ -115,12 +110,16 @@
       button {
         width: 30%;
         padding: 10px;
-        border: none;
-        margin-left: 150px;
+        border: 1px solid black;
+        margin-left: 160px;
         background-color: #0070f3;
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
+      }
+
+      button:hover{
+        background-color: #0f09b2;
       }
 
       .save-button {

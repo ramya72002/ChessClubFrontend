@@ -1,17 +1,18 @@
 .signin-form-container {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 50px auto 0;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #f8f8f2;
 }
 
 .signin-form-container h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  font-weight: bold;
+  color: #0b0b0b;
 }
 
 .signin-form-container p {
@@ -26,17 +27,27 @@
 
 .form-group label {
   display: block;
-  font-weight: bold;
+  
+  color: #2a45dc;
   margin-bottom: 5px;
 }
-
-.form-group input[type="email"] {
+.form-group1 label {
+  display: block;
+  
+  color: #0e0e0e;
+  margin-bottom: 5px;
+}
+.form-group1 input[type="email"] {
   width: 100%;
   padding: 8px;
+  margin: 7px;
+  color: #000;
   border: 1px solid #0e0101;
   border-radius: 4px;
   box-sizing: border-box;
+  text-align: left; /* This ensures the text inside the input is aligned to the left */
 }
+
 
 .checkbox-container {
   display: flex;
