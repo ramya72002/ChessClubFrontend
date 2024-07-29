@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import './Admin.scss';
+import './admin.scss';
 import * as XLSX from 'xlsx';
 
 interface User {
