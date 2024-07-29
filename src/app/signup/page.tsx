@@ -120,8 +120,7 @@ const Signup = () => {
             title="Please enter a valid phone number."
             value={formValues.phone}
             onChange={handleInputChange}
-            required
-          />
+           />
           <small>Please enter a valid phone number.</small>
         </div>
         <div className="form-actions">
