@@ -58,7 +58,6 @@ const Signup = () => {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
     <div className="signup-form-container">
@@ -67,57 +66,32 @@ const Signup = () => {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
-          <label htmlFor="parentName">Parent Name</label>
           <div className="input-row">
-            <input
-              type="text"
-              id="parentName"
-              name="parentName"
-              placeholder="Name"
-              value={formValues.parentName}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="kidName1">Kid-1 Name</label>
-          <div className="input-row">
-            <input
-              type="text"
-              id="kidName1"
-              name="kidName1"
-              placeholder="Kid-1 Name"
-              value={formValues.kidName1}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="kidName2">Kid-2 Name</label>
-          <div className="input-row">
-            <input
-              type="text"
-              id="kidName2"
-              name="kidName2"
-              placeholder="Kid-2 Name"
-              value={formValues.kidName2}
-              onChange={handleInputChange}
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="kidName3">Kid-3 Name</label>
-          <div className="input-row">
-            <input
-              type="text"
-              id="kidName3"
-              name="kidName3"
-              placeholder="Kid-3 Name"
-              value={formValues.kidName3}
-              onChange={handleInputChange}
-            />
+            <div className="input-column">
+              <label htmlFor="parentName">Parent Name</label>
+              <input
+                type="text"
+                id="parentName"
+                name="parentName"
+                placeholder="Name"
+                value={formValues.parentName}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="input-column">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(000) 000-0000"
+                pattern="^\(\d{3}\) \d{3}-\d{4}$"
+                title="Please enter a valid phone number."
+                value={formValues.phone}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
         </div>
         <div className="form-group">
@@ -133,15 +107,36 @@ const Signup = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Phone Number</label>
+          <label htmlFor="kidName1">Kid-1 Name</label>
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="(000) 000-0000"
-            pattern="^\(\d{3}\) \d{3}-\d{4}$"
-            title="Please enter a valid phone number."
-            value={formValues.phone}
+            type="text"
+            id="kidName1"
+            name="kidName1"
+            placeholder="Kid-1 Name"
+            value={formValues.kidName1}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="kidName2">Kid-2 Name</label>
+          <input
+            type="text"
+            id="kidName2"
+            name="kidName2"
+            placeholder="Kid-2 Name"
+            value={formValues.kidName2}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="kidName3">Kid-3 Name</label>
+          <input
+            type="text"
+            id="kidName3"
+            name="kidName3"
+            placeholder="Kid-3 Name"
+            value={formValues.kidName3}
             onChange={handleInputChange}
           />
         </div>
