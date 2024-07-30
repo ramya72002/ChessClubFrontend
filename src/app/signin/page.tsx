@@ -46,10 +46,10 @@ const SignIn = () => {
         if (data.success) {
           router.push('/ThankYouMessage');
         } else {
-          setError('Sign in failed. Please try again.');
+          setError('Email not registered. Please sign up.');
         }
       } else {
-        setError('Error signing in. Please try again later.');
+        setError('Email not registered. Please sign up.');
       }
     } catch (error) {
       console.error('Error submitting the form:', error);
