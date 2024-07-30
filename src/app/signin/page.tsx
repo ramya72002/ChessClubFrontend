@@ -1,7 +1,8 @@
-'use client';
+// SignIn.jsx (or your appropriate file name)
+'use client'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import './Signin.scss'; // Import the SCSS file
+import './Signin.scss';
 
 const SignIn = () => {
   const [formValues, setFormValues] = useState({
@@ -9,7 +10,7 @@ const SignIn = () => {
     acceptTerms: false,
   });
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleInputChange = (e: { target: { name: any; value: any; type: any; checked: any; }; }) => {
@@ -28,7 +29,7 @@ const SignIn = () => {
       return;
     }
 
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
 
     try {
       const response = await fetch('https://chess-club-backend.vercel.app/signin', {
@@ -39,7 +40,7 @@ const SignIn = () => {
         body: JSON.stringify({ email: formValues.email }),
       });
 
-      setIsLoading(false); // Set loading state to false
+      setIsLoading(false);
 
       if (response.ok) {
         const data = await response.json();
@@ -53,7 +54,7 @@ const SignIn = () => {
       }
     } catch (error) {
       console.error('Error submitting the form:', error);
-      setIsLoading(false); // Set loading state to false on error
+      setIsLoading(false);
       setError('An error occurred. Please try again later.');
     }
   };
@@ -62,13 +63,16 @@ const SignIn = () => {
     <div className="signin-form-container">
       {isLoading ? (
         <div className="loading-container">
-          <img src='/images/loading.gif' alt="Loading..." className="loading-gif" />
+          <img src="/images/loading.gif" alt="Loading..." className="loading-gif" />
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="signin-form">
-          <h2>Sign In</h2>
-          <div className="logo-container">
-            <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
+      <h2>CHESS CLUB: VISITOR SIGN-IN FORM</h2>
+      <p>
+        For compliance and emergency communication purposes, Delaware Chess Champs requires basic information from all patrons visiting our chess club. Your data will be handled confidentially and used solely for these purposes.
+      </p>
+      <div className="logo-container">
+            <img src="/images/logo.png" alt="Logo" className="logo" />
           </div>
           <div className="form-group1">
             <label>Email</label>
@@ -82,33 +86,28 @@ const SignIn = () => {
             />
           </div>
           <div className="form-group">
-  <div className="checkbox-container">
-    <input
-      type="checkbox"
-      name="acceptTerms"
-      checked={formValues.acceptTerms}
-      onChange={handleInputChange}
-    />
-    <label>
-      I accept the{' '}
-      <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
-        terms and conditions
-      </a>
-    </label>
-  </div>
-</div>
-
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                name="acceptTerms"
+                checked={formValues.acceptTerms}
+                onChange={handleInputChange}
+              />
+              <label>
+                I accept the{' '}
+                <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
+                  terms and conditions
+                </a>
+              </label>
+            </div>
+          </div>
           {error && <p className="error-message">{error}</p>}
           <div className="form-actions">
             <button type="submit" className="signin-button">Sign In</button>
-            <button 
-              type="button" 
-              className="signup-link-button"
-              onClick={() => router.push('/signup')} // Navigates to the signup page
-            >
-              Don’t you have an account yet? Sign Up
-            </button>
           </div>
+          <p className="signup-prompt">
+            Don’t you have an account yet? <a href="/signup">Sign Up</a>
+          </p>
         </form>
       )}
     </div>

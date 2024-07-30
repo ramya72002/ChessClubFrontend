@@ -54,9 +54,7 @@ const Signup = () => {
     <div className="signup-form-container">
       <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
       <h2>CHESS CLUB: VISITOR SIGN-UP FORM</h2>
-      <p>
-        For compliance and emergency communication purposes, Delaware Chess Champs requires basic information from all patrons visiting our chess club. Your data will be handled confidentially and used solely for these purposes.
-      </p>
+      
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
           <label>Parent Name</label>
