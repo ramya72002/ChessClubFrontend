@@ -6,6 +6,7 @@ import * as XLSX from 'xlsx';
 interface User {
   parentName: string;
   kidName: string;
+  schoolName: string;
   email: string;
   phone: string;
 }
@@ -24,6 +25,7 @@ const Admin: React.FC = () => {
         const modifiedData = data.map((user: any) => ({
           parentName: user.parentName,
           kidName: user.kidName,
+          schoolName: user.schoolName,
           email: user.email,
           phone: user.phone,
         }));
@@ -55,6 +57,7 @@ const Admin: React.FC = () => {
           <tr>
             <th>Parent Name</th>
             <th>Kid Name</th>
+            <th>School Name</th>
             <th>Email</th>
             <th>Phone</th>
           </tr>
@@ -64,6 +67,7 @@ const Admin: React.FC = () => {
             <tr key={index}>
               <td>{user.parentName}</td>
               <td>{user.kidName}</td>
+              <td>{user.schoolName}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
             </tr>
