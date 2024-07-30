@@ -3,16 +3,15 @@ body {
 }
 
 .signup-form-container {
-  position: relative; /* Ensure positioning context for the pseudo-element */
+  position: relative;
   max-width: 600px;
   margin: auto;
-  padding: 30px; /* Adjust padding to accommodate the inner border */
+  padding: 30px;
   background-color: #fffefd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,38 +25,46 @@ body {
     left: 20px;
     border: 1px solid #bbb6b6;
     border-radius: 8px;
-    pointer-events: none; /* Ensure the pseudo-element doesn't interfere with content */
+    pointer-events: none;
   }
 }
 
 .logo {
   width: 200px;
-  height: 300px;
-  margin-bottom: 20px;
+  height: 250px;
 }
 
 h2 {
-  margin-bottom: 10px;
+  margin-top: 10px;
   color: #333;
-  font-size: 28px; /* Increased font size */
-}
-
-p {
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #555;
+  font-size: 28px;
 }
 
 .signup-form {
   .form-group {
     margin-bottom: 15px;
+    text-align: left;
 
     label {
       display: block;
       margin-bottom: 10px;
       font-weight: bold;
       color: #333;
-      text-align: left;
+      &::after {
+        content: '*';
+        color: red;
+        margin-left: 5px;
+        display: none; // Hide asterisk by default
+      }
+
+      // Add * for required fields
+      &[for="parentName"],
+      &[for="kidName1"],
+      &[for="email"] {
+        &::after {
+          display: inline;
+        }
+      }
     }
 
     .input-row {
@@ -85,40 +92,40 @@ p {
 
   .form-actions {
     display: flex;
-    justify-content: center; /* Center buttons horizontally */
-    gap: 20px; /* Space between buttons */
+    justify-content: center;
+    gap: 20px;
     margin-top: 20px;
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-    width: 100%; /* Ensure full width for container */
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .submit-button,
   .signin-button {
-    padding: 10px 20px; /* Adjust padding for buttons */
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px; /* Font size for buttons */
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px; /* Height of the button */
-    white-space: nowrap; /* Prevent text wrapping */
-    border: 1px solid transparent; /* Border to maintain layout */
-    position: relative; /* Position context for loading GIF */
+    height: 50px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    position: relative;
   }
 
   .submit-button {
     color: white;
     width: 150px;
     background-color: #0070f3;
-    overflow: hidden; /* Hide overflow to fit loading GIF */
+    overflow: hidden;
   }
 
   .submit-button img {
     position: absolute;
-    width: 20px; /* Size of the loading GIF */
+    width: 20px;
     height: 20px;
-    margin-right: 8px; /* Space between GIF and text */
+    margin-right: 8px;
   }
 
   .submit-button:hover {
@@ -127,7 +134,7 @@ p {
 
   .signin-button {
     background-color: #0070f3;
-    border: 1px solid #ddd; /* Light border color */
+    border: 1px solid #ddd;
     color: #fffdfd;
     width: 300px;
   }

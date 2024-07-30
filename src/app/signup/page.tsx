@@ -4,14 +4,15 @@ import './Signup.scss';
 
 const Signup = () => {
   const [formValues, setFormValues] = useState({
-    parentFirstName: '',
-    parentLastName: '',
-    kidFirstName: '',
-    kidLastName: '',
+    parentName: '',
+    kidName1: '',
+    kidName2: '',
+    kidName3: '',
     email: '',
     phone: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
@@ -23,8 +24,9 @@ const Signup = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set submitting state to true
-
+    setIsSubmitting(true);
+    setErrorMessage('');
+  
     try {
       const response = await fetch('https://chess-club-backend.vercel.app/signup', {
         method: 'POST',
@@ -33,75 +35,96 @@ const Signup = () => {
         },
         body: JSON.stringify(formValues)
       });
-
-      if (!response.ok) {
-        // Redirect to sign-in page if an error occurs
-        window.location.href = '/signin';
-        console.error('Error:', response.statusText);
-        return;
+  
+      if (response.ok) {
+        // Ensure response is JSON before parsing
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.indexOf('application/json') !== -1) {
+          const data = await response.json();
+          console.log('Form submitted successfully:', data);
+          window.location.href = '/signin';
+        } else {
+          setErrorMessage('Unexpected response format. Please try again.');
+        }
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.error || 'An error occurred. Please try again.');
+        console.error('Error submitting the form:', errorData);
       }
-
-      const data = await response.json();
-      console.log('Form submitted successfully:', data);
     } catch (error) {
-      console.error('Error submitting the form:', error);
+      console.error('Network error or other issue:', error);
+      setErrorMessage('An error occurred while submitting the form. Please try again.');
     } finally {
-      setIsSubmitting(false); // Reset submitting state
+      setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="signup-form-container">
-      <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
       <h2>CHESS CLUB: VISITOR SIGN-UP FORM</h2>
-      
+      <img src='/images/logo.png' alt="Delaware Chess Champs Logo" className="logo" />
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
-          <label>Parent Name</label>
+          <label htmlFor="parentName">Parent Name</label>
           <div className="input-row">
             <input
               type="text"
-              name="parentFirstName"
-              placeholder="First Name"
-              value={formValues.parentFirstName}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="text"
-              name="parentLastName"
-              placeholder="Last Name"
-              value={formValues.parentLastName}
+              id="parentName"
+              name="parentName"
+              placeholder="Name"
+              value={formValues.parentName}
               onChange={handleInputChange}
               required
             />
           </div>
         </div>
         <div className="form-group">
-          <label>Kid Name</label>
+          <label htmlFor="kidName1">Kid-1 Name</label>
           <div className="input-row">
             <input
               type="text"
-              name="kidFirstName"
-              placeholder="First Name"
-              value={formValues.kidFirstName}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="text"
-              name="kidLastName"
-              placeholder="Last Name"
-              value={formValues.kidLastName}
+              id="kidName1"
+              name="kidName1"
+              placeholder="Kid-1 Name"
+              value={formValues.kidName1}
               onChange={handleInputChange}
               required
             />
           </div>
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label htmlFor="kidName2">Kid-2 Name</label>
+          <div className="input-row">
+            <input
+              type="text"
+              id="kidName2"
+              name="kidName2"
+              placeholder="Kid-2 Name"
+              value={formValues.kidName2}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="kidName3">Kid-3 Name</label>
+          <div className="input-row">
+            <input
+              type="text"
+              id="kidName3"
+              name="kidName3"
+              placeholder="Kid-3 Name"
+              value={formValues.kidName3}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             name="email"
             placeholder="example@example.com"
             value={formValues.email}
@@ -110,17 +133,18 @@ const Signup = () => {
           />
         </div>
         <div className="form-group">
-          <label>Phone Number</label>
+          <label htmlFor="phone">Phone Number</label>
           <input
             type="tel"
+            id="phone"
             name="phone"
             placeholder="(000) 000-0000"
             pattern="^\(\d{3}\) \d{3}-\d{4}$"
             title="Please enter a valid phone number."
             value={formValues.phone}
             onChange={handleInputChange}
-           />
-         </div>
+          />
+        </div>
         <div className="form-actions">
           <button type="submit" className="submit-button" disabled={isSubmitting}>
             {isSubmitting ? <img src="/images/loading.gif" alt="Loading" /> : 'Submit'}

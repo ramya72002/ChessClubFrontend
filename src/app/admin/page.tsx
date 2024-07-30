@@ -4,13 +4,10 @@ import './admin.scss';
 import * as XLSX from 'xlsx';
 
 interface User {
-  parentFirstName: string;
-  parentLastName: string;
-  kidFirstName: string;
-  kidLastName: string;
+  parentName: string;
+  kidName: string;
   email: string;
   phone: string;
-  createdAt: string;
 }
 
 const Admin: React.FC = () => {
@@ -23,7 +20,14 @@ const Admin: React.FC = () => {
       .then(response => response.json())
       .then(data => {
         console.log('Fetched data:', data); // Debugging
-        setUsers(data);
+        // Use only the necessary fields from the fetched data
+        const modifiedData = data.map((user: any) => ({
+          parentName: user.parentName,
+          kidName: user.kidName,
+          email: user.email,
+          phone: user.phone,
+        }));
+        setUsers(modifiedData);
         setLoading(false);
       })
       .catch(error => {
@@ -49,25 +53,19 @@ const Admin: React.FC = () => {
       <table className="users-table">
         <thead>
           <tr>
-            <th>Parent First Name</th>
-            <th>Parent Last Name</th>
-            <th>Kid First Name</th>
-            <th>Kid Last Name</th>
+            <th>Parent Name</th>
+            <th>Kid Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Created At</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user, index) => (
             <tr key={index}>
-              <td>{user.parentFirstName}</td>
-              <td>{user.parentLastName}</td>
-              <td>{user.kidFirstName}</td>
-              <td>{user.kidLastName}</td>
+              <td>{user.parentName}</td>
+              <td>{user.kidName}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
-              <td>{user.createdAt}</td>
             </tr>
           ))}
         </tbody>
