@@ -46,8 +46,8 @@ h2 {
     text-align: left;
     width: 100%;
     input {
-      width: 100%;
-    }
+          width: 100%;
+        }
 
     label {
       display: block;
@@ -63,7 +63,8 @@ h2 {
 
       // Add * for required fields
       &[for="parentName"],
-      &[for="email"] {
+      &[for="email"] ,
+      &[for="kidName1"] {
         &::after {
           display: inline;
         }
