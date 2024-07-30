@@ -15,7 +15,7 @@ body {
 .logo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .logo {
@@ -25,14 +25,14 @@ body {
 
 .signin-form {
   border: 1px solid #c6bfbf;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   background-color: #fff;
 }
 
 .signin-form-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   font-weight: bold;
   color: #0b0b0b;
   font-size: 28px; /* Increased font size */
@@ -51,7 +51,7 @@ body {
 .form-group label {
   display: block;
   color: #030303;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
 }
 
 .form-group label a {
@@ -59,15 +59,15 @@ body {
 }
 
 .form-group1 label {
-  display: block;
+  // display: block;
   color: #0e0e0e;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
 }
 
 .form-group1 input[type="email"] {
   width: 100%;
-  padding: 6px;
-  margin: 7px;
+  padding: 10px;
+  margin: 1px;
   color: #000;
   border: 1px solid #0e0101;
   border-radius: 4px;
@@ -78,7 +78,7 @@ body {
 .checkbox-container {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .checkbox-container input[type="checkbox"] {

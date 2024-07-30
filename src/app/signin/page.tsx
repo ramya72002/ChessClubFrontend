@@ -82,19 +82,22 @@ const SignIn = () => {
             />
           </div>
           <div className="form-group">
-            <input
-              type="checkbox"
-              name="acceptTerms"
-              checked={formValues.acceptTerms}
-              onChange={handleInputChange}
-            />
-            <label>
-              I accept the{' '}
-              <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
-                terms and conditions
-              </a>
-            </label>
-          </div>
+  <div className="checkbox-container">
+    <input
+      type="checkbox"
+      name="acceptTerms"
+      checked={formValues.acceptTerms}
+      onChange={handleInputChange}
+    />
+    <label>
+      I accept the{' '}
+      <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
+        terms and conditions
+      </a>
+    </label>
+  </div>
+</div>
+
           {error && <p className="error-message">{error}</p>}
           <div className="form-actions">
             <button type="submit" className="signin-button">Sign In</button>
