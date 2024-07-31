@@ -101,7 +101,7 @@ const SignIn = () => {
               </label>
             </div>
           </div>
-          {error && <p className="error-message">{error}</p>}
+          {error && <div className="error-message">{error}</div>}
           <div className="form-actions">
             <button type="submit" className="signin-button">Sign In</button>
           </div>

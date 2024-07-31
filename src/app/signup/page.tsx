@@ -6,8 +6,11 @@ const Signup = () => {
   const [formValues, setFormValues] = useState({
     parentName: '',
     kidName1: '',
+    schoolName1: '',
     kidName2: '',
+    schoolName2: '',
     kidName3: '',
+    schoolName3: '',
     email: '',
     phone: ''
   });
@@ -26,7 +29,7 @@ const Signup = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage('');
-  
+
     try {
       const response = await fetch('https://chess-club-backend.vercel.app/signup', {
         method: 'POST',
@@ -35,9 +38,8 @@ const Signup = () => {
         },
         body: JSON.stringify(formValues)
       });
-  
+
       if (response.ok) {
-        // Ensure response is JSON before parsing
         const contentType = response.headers.get('content-type');
         if (contentType && contentType.indexOf('application/json') !== -1) {
           const data = await response.json();
@@ -94,7 +96,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
-        <div className="form-group">
+        <div className="form-group1">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -107,38 +109,84 @@ const Signup = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="kidName1">Kid-1 Name</label>
-          <input
-            type="text"
-            id="kidName1"
-            name="kidName1"
-            placeholder="Kid-1 Name"
-            value={formValues.kidName1}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="input-row">
+            <div className="input-column">
+              <label htmlFor="kidName1">Kid-1 Name</label>
+              <input
+                type="text"
+                id="kidName1"
+                name="kidName1"
+                placeholder="Kid-1 Name"
+                value={formValues.kidName1}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="input-column">
+              <label htmlFor="schoolName1">Kid-1 School Name</label>
+              <input
+                type="text"
+                id="schoolName1"
+                name="schoolName1"
+                placeholder="Kid-1 School Name"
+                value={formValues.schoolName1}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+          </div>
         </div>
         <div className="form-group">
-          <label htmlFor="kidName2">Kid-2 Name</label>
-          <input
-            type="text"
-            id="kidName2"
-            name="kidName2"
-            placeholder="Kid-2 Name"
-            value={formValues.kidName2}
-            onChange={handleInputChange}
-          />
+          <div className="input-row">
+            <div className="input-column">
+              <label htmlFor="kidName2">Kid-2 Name</label>
+              <input
+                type="text"
+                id="kidName2"
+                name="kidName2"
+                placeholder="Kid-2 Name"
+                value={formValues.kidName2}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="input-column">
+              <label htmlFor="schoolName2">Kid-2 School Name</label>
+              <input
+                type="text"
+                id="schoolName2"
+                name="schoolName2"
+                placeholder="Kid-2 School Name"
+                value={formValues.schoolName2}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
         </div>
         <div className="form-group">
-          <label htmlFor="kidName3">Kid-3 Name</label>
-          <input
-            type="text"
-            id="kidName3"
-            name="kidName3"
-            placeholder="Kid-3 Name"
-            value={formValues.kidName3}
-            onChange={handleInputChange}
-          />
+          <div className="input-row">
+            <div className="input-column">
+              <label htmlFor="kidName3">Kid-3 Name</label>
+              <input
+                type="text"
+                id="kidName3"
+                name="kidName3"
+                placeholder="Kid-3 Name"
+                value={formValues.kidName3}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="input-column">
+              <label htmlFor="schoolName3">Kid-3 School Name</label>
+              <input
+                type="text"
+                id="schoolName3"
+                name="schoolName3"
+                placeholder="Kid-3 School Name"
+                value={formValues.schoolName3}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
         </div>
         <div className="form-actions">
           <button type="submit" className="submit-button" disabled={isSubmitting}>
