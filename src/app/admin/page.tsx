@@ -8,6 +8,7 @@ interface User {
   kidName: string;
   email: string;
   phone: string;
+  last_signin: string;
 }
 
 const Admin: React.FC = () => {
@@ -26,6 +27,7 @@ const Admin: React.FC = () => {
           kidName: user.kidName,
           email: user.email,
           phone: user.phone,
+          last_signin:user.last_signin
         }));
         setUsers(modifiedData);
         setLoading(false);
@@ -57,6 +59,8 @@ const Admin: React.FC = () => {
             <th>Kid Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Last_signin</th>
+
           </tr>
         </thead>
         <tbody>
@@ -66,6 +70,7 @@ const Admin: React.FC = () => {
               <td>{user.kidName}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
+              <td>{user.last_signin}</td>
             </tr>
           ))}
         </tbody>
